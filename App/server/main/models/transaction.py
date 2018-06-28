@@ -30,21 +30,24 @@ class BaseModel(db.Model):
                 for c in inspect(self).mapper.column_attrs}
 
 
-class User(BaseModel, db.Model):
-    """Model for users table"""
-    __tablename__ = "users"
+class Transaction(BaseModel, db.Model):
+    """Model for transaction table"""
+    __tablename__ = "transaction"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    username = db.Column(db.String(128), nullable=False)
-    email = db.Column(db.String(128), nullable=False)
-    password = db.Column(db.String(128), nullable=False)
-    active = db.Column(db.Boolean(), default=True, nullable=False)
+    bitfinex_id = db.Column(db.Integer, nullable=False)
+    bitfinex_currency = db.Column(db.String(128), nullable=False)
+    bitfinex_timestamp = db.Column(db.Integer, nullable=False)
+    bitfinex_price = db.Column(db.Float, nullable=False)
+    bitfinex_amount = db.Column(db.Float, nullable=False)
     # using func.now(), so time is calculated by the DB server and not by app server.
     # https://stackoverflow.com/questions/13370317/sqlalchemy-default-datetime?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
     created_date = db.Column(db.DateTime, nullable=False, default=func.now())
 
-    def __init__(self, username, email, password):
+    def __init__(self, bitfinex_id, bitfinex_currency, bitfinex_timestamp,bitfinex_price,bitfinex_amount):
         super().__init__()
-        self.username = username
-        self.email = email
-        self.password = password
+        self.bitfinex_id = bitfinex_id
+        self.bitfinex_currency = bitfinex_currency
+        self.bitfinex_timestamp = bitfinex_timestamp
+        self.bitfinex_price = bitfinex_price
+        self.bitfinex_amount = bitfinex_amount

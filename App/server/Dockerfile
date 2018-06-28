@@ -1,6 +1,6 @@
 FROM python:3.6.2
 
-MAINTAINER Sanjiv Kumar "mr.san.kumar@gmail.com"
+MAINTAINER Matic Vrenko "matic.vrenko@gmail.com"
 
 ENV PYTHONUNBUFFERED 1
 

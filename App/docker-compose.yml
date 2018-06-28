@@ -5,7 +5,7 @@
 version: '2'
 
 services:
-  nginx_demo:
+  nginx:
     container_name: nginx_demo_container
     restart: always
     container_name: nginx
@@ -19,9 +19,9 @@ services:
       - "80:80"
       - "443:443"
     depends_on:
-      - flask_demo
+      - flask
 
-  flask_demo:
+  flask:
     container_name: flask_demo_container
     restart: always
     image: flask
@@ -30,21 +30,17 @@ services:
     - ./server:/usr/src/app/server
     env_file:
      - .env
+    depends_on:
+      rabbit:
+        condition: service_healthy
+    links: 
+        - rabbit
 
-  data:
-   container_name: app_data_demo_container
-   image: postgres:9.6
-   volumes:
-     - /var/lib/postgresql
-   command: "true"
-
-  postgres:
-   container_name: postgresql_demo_container
-   restart: always
-   build: ./postgresql
-   volumes_from:
-     - data
-   ports:
-     - "5432:5432"
-   env_file:
-     - .env
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: yes
+      MYSQL_DATABASE: vrenko-bitfinex
+      MYSQL_USER: vrenko-bitfinex
+      MYSQL_PASSWORD: Complicated11Admin22Password33
