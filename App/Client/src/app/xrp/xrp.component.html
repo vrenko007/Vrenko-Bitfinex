@@ -1,0 +1,10 @@
+<mat-card fxLayoutAlign="center">
+  <jqxChart #myChart
+      [width]="850" [height]="500"
+      [title]="'XRP => USD'" [enableAxisTextAnimation]="true"
+      [description]="''" [animationDuration]="500"
+      [showLegend]="true" [enableAnimations]="true" [padding]="padding"
+      [titlePadding]="titlePadding" [source]="data" [xAxis]="xAxis"
+      [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme01'">
+  </jqxChart>
+</mat-card>
