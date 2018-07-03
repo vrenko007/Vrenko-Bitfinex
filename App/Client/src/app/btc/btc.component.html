@@ -1,7 +1,10 @@
-<div style="text-align:center">
-  <h1>Angular Content Management System</h1>
-  <p>
-    This is a platform for technical writers to manage their blog post contents related to angular.
-    <br> Click on Login to get Started!!!
-  </p>
-</div>
+<mat-card fxLayoutAlign="center">
+  <jqxChart #BTCChart
+      [width]="850" [height]="500"
+      [title]="'BTC => USD'" [enableAxisTextAnimation]="false"
+      [description]="''" [animationDuration]="500"
+      [showLegend]="false" [enableAnimations]="true" [padding]="padding"
+      [titlePadding]="titlePadding" [source]="data" [xAxis]="xAxis"
+      [valueAxis]="valueAxis" [seriesGroups]="seriesGroups" [colorScheme]="'scheme01'">
+  </jqxChart>
+</mat-card>

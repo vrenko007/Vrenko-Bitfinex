@@ -69,7 +69,7 @@ def get_last_20_transactions(group):
     session = Session()
     stack = session.query(Transaction).join(PairChannel).join(Pair).filter(Pair.title == group).order_by(Transaction.created_at.desc())[0:20]
     session.close()
-    return stack
+    return stack[::-1]
 
 
 def on_message(ws, message):
