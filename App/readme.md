@@ -24,4 +24,4 @@
 
 App should be running on <http://127.0.0.1:4200> or port stated in command line
 
-If python app isn't searved on port 5000 you need to update port in SocketIO config in `Client/app/app.module.ts`
+If python app isn't served on port 5000 you need to update port in SocketIO config in `Client/app/app.module.ts`
