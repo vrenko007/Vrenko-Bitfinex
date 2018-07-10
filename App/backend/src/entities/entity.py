@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import QueuePool
 
 db_url = '127.0.0.1:3306'
-db_name = 'Vrenko-Bitfinex'
+db_name = 'bitfinex'
 db_user = 'Vrenko-Bitfinex'
 db_password = 'Super111Complicated222'
 engine = create_engine(f'mysql+pymysql://{db_user}:{db_password}@{db_url}/{db_name}')

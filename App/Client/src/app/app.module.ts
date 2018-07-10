@@ -13,7 +13,7 @@ import { AppRouters } from './app.routes';
 import { jqxChartComponent } from '../../node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxchart';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
-const config: SocketIoConfig = { url: 'http://127.0.0.1:5000', options: {} };
+const config: SocketIoConfig = { url: 'http://vrenko-bitfinex.westeurope.cloudapp.azure.com:5000', options: {} };
 
 @NgModule({
   declarations: [
